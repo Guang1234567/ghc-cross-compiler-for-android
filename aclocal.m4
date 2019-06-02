@@ -1283,12 +1283,24 @@ fi
 GccLT46=NO
 AC_CACHE_CHECK([version of gcc], [fp_cv_gcc_version],
 [
+    # For android cross compile
+    #
+    # As https://gitlab.haskell.org/ghc/ghc/wikis/building/cross-compiling#configuring-the-build mention:
+    #
+    # Your target triplet/quad must have the general form <arch>-<os>-<abi> or <arch>-<vendor>-<os>-<abi>.
+    # If configure complains that your arch, vendor or OS is unknown, 
+    # then you will need to modify the checkArch(), checkVendor() or checkOS() function in aclocal.m4, 
+    # then get autotools to re-create the configure script using the autoreconf command.
+    #
+    # Now also modify that gcc version checker!
+    #
+    #
     # Be sure only to look at the first occurrence of the "version " string;
     # Some Apple compilers emit multiple messages containing this string.
     fp_cv_gcc_version="`$CC -v 2>&1 | sed -n -e '1,/version /s/.*version [[^0-9]]*\([[0-9.]]*\).*/\1/p'`"
-    FP_COMPARE_VERSIONS([$fp_cv_gcc_version], [-lt], [4.4],
-                        [AC_MSG_ERROR([Need at least gcc version 4.4 (4.7+ recommended)])])
-    FP_COMPARE_VERSIONS([$fp_cv_gcc_version], [-lt], [4.6], GccLT46=YES)
+    FP_COMPARE_VERSIONS([$fp_cv_gcc_version], [-lt], [3.8],
+                        [AC_MSG_ERROR([Need at least android ndk gcc version 3.8 (NDK14 recommended! Because Android-NDK-14's clang version 3.8.275480)])])
+    FP_COMPARE_VERSIONS([$fp_cv_gcc_version], [-lt], [3.8], GccLT46=YES)
 ])
 AC_SUBST([GccVersion], [$fp_cv_gcc_version])
 AC_SUBST(GccLT46)

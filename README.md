@@ -1,3 +1,44 @@
+My Changed Log
+============================
+
+## 2019-06-01
+
+How to build?
+
+https://gitlab.haskell.org/ghc/ghc/wikis/arm64
+
+### Demonstration on mac osx 10.14.3
+
+1) Download below projects and ndk 14 and configure it (how? google)
+
+[hs-android-helloworld](https://github.com/Guang1234567/hs-android-helloworld#build-libhsso)
+
+[ghc-build-scripts](https://github.com/Guang1234567/ghc-build-scripts)
+
+[android-ndk14-toolchain-wrapper](https://github.com/Guang1234567/android-ndk14-toolchain-wrapper)
+
+2) compile "XXX.hs" to "XXX.a" 
+
+[Helloworld's Readme](https://github.com/Guang1234567/hs-android-helloworld/tree/static_lib#build-libhsa)
+
+```bash
+armv7-linux-androideabi-ghc -fPIC \
+  -L$HOME/dev_kit/haskell/ghc-build-scripts/dist/libiconv_prefix/armeabi-v7a/lib \
+  -staticlib -liconv -lcharset \
+  -o ./hs-libs/armeabi-v7a/libhs.a \
+  ./src/main/hs/Lib.hs
+```
+3) import to android studio 3.4 and run it
+
+### NO BUILD NO PAIN.
+Do not try to build cross-compiler by yourself, it's not funny.
+
+The ```Prebuild Dist``` is ready for you in [brother branch](https://github.com/Guang1234567/ghc-cross-compiler-for-android/tree/ghc-8.6.5-20190531-armv7-linux-androideabi) .
+
+
+
+
+
 The Glasgow Haskell Compiler
 ============================
 

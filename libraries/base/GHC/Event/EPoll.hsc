@@ -92,7 +92,7 @@ modifyFd ep fd oevt nevt =
 
 modifyFdOnce :: EPoll -> Fd -> E.Event -> IO Bool
 modifyFdOnce ep fd evt =
-  do let !ev = fromEvent evt .|. epollOneShot
+  do let !ev = fromEvent evt .|. epollHup
      res <- with (Event ev fd) $
             epollControl_ (epollFd ep) controlOpModify fd
      if res == 0
@@ -173,7 +173,6 @@ newtype EventType = EventType {
  , epollOut = EPOLLOUT
  , epollErr = EPOLLERR
  , epollHup = EPOLLHUP
- , epollOneShot = EPOLLONESHOT
  }
 
 -- | Create a new epoll context, returning a file descriptor associated with the context.
