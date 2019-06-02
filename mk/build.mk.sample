@@ -26,7 +26,7 @@
 #BuildFlavour = quick-llvm
 
 # Fast build configured for a cross compiler (using the LLVM backend)
-#BuildFlavour = quick-cross
+BuildFlavour = quick-cross
 
 # Fast build configured for a cross compiler (using the NCG backend)
 #BuildFlavour = quick-cross-ncg
