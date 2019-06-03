@@ -511,10 +511,10 @@
 /* #undef _POSIX_SOURCE */
 
 /* ARM pre v6 */
-/* #undef arm_HOST_ARCH_PRE_ARMv6 */
+#define arm_HOST_ARCH_PRE_ARMv6 1
 
 /* ARM pre v7 */
-/* #undef arm_HOST_ARCH_PRE_ARMv7 */
+#define arm_HOST_ARCH_PRE_ARMv7 1
 
 /* Define to empty if `const' does not conform to ANSI C. */
 /* #undef const */

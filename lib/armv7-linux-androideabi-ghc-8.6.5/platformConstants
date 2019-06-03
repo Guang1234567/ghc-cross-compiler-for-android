@@ -111,8 +111,8 @@ PlatformConstants {
     , pc_MAX_Long_REG = 1
     , pc_MAX_XMM_REG = 6
     , pc_MAX_Real_Vanilla_REG = 4
-    , pc_MAX_Real_Float_REG = 4
-    , pc_MAX_Real_Double_REG = 2
+    , pc_MAX_Real_Float_REG = 0
+    , pc_MAX_Real_Double_REG = 0
     , pc_MAX_Real_XMM_REG = 0
     , pc_MAX_Real_Long_REG = 0
     , pc_RESERVED_C_STACK_BYTES = 8192

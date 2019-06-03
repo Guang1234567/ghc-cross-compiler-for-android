@@ -22,7 +22,7 @@
  ("perl command", "/usr/local/bin/perl"),
  ("cross compiling", "YES"),
  ("target os", "OSLinux"),
- ("target arch", "ArchARM {armISA = ARMv7, armISAExt = [VFPv3,NEON], armABI = SOFTFP}"),
+ ("target arch", "ArchARM {armISA = ARMv5, armISAExt = [], armABI = SOFT}"),
  ("target word size", "4"),
  ("target has GNU nonexec stack", "True"),
  ("target has .ident directive", "True"),
