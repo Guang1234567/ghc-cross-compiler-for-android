@@ -112,3 +112,7 @@ endif
 
 # Don't strip debug and other unneeded symbols from libraries and executables.
 STRIP_CMD = :
+
+
+# For android cross compile
+SRC_HC_OPTS += -fPIC -fPIE -pie
