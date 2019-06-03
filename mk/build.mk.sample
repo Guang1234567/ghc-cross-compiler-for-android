@@ -26,7 +26,7 @@
 #BuildFlavour = quick-llvm
 
 # Fast build configured for a cross compiler (using the LLVM backend)
-#BuildFlavour = quick-cross
+BuildFlavour = quick-cross
 
 # Fast build configured for a cross compiler (using the NCG backend)
 #BuildFlavour = quick-cross-ncg
@@ -112,3 +112,7 @@ endif
 
 # Don't strip debug and other unneeded symbols from libraries and executables.
 STRIP_CMD = :
+
+
+# For android cross compile
+SRC_HC_OPTS += -fPIC -fPIE -pie
