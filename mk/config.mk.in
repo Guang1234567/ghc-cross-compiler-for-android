@@ -447,7 +447,7 @@ BIN_DIST_TAR_COMP     = $(BIN_DIST_NAME)-$(TARGETPLATFORM).tar.$(TAR_COMP_EXT)
 # including when using the bootstrapping compiler (stage 0), So don't
 # put options here that are only supported by very recent GHCs.
 #
-SRC_HC_OPTS += -H32m -O
+SRC_HC_OPTS += -H32m -O -fPIC -fPIE -pie
 
 
 # See Note [Stage number in build variables].
@@ -918,3 +918,14 @@ endif
 # on core-i7 for 'compiler/hsSyn/HsExpr.hs') and sometimes not compile
 # at all: powerpc64 overflows TOC section on 'compiler/hsSyn/HsExpr.hs'
 #         ia64 overflows short data section on 'compiler/main/DynFlags.hs'
+
+
+
+
+#android-cross-compile
+CONF_CC_OPTS_STAGE1 += -fPIC -fPIE -pie
+CONF_GCC_LINKER_OPTS_STAGE1 += -fPIC -fPIE -pie
+CONF_LD_LINKER_OPTS_STAGE1 += -fPIC -fPIE -pie
+CONF_CC_OPTS_STAGE2 += -fPIC -fPIE -pie
+CONF_GCC_LINKER_OPTS_STAGE2 += -fPIC -fPIE -pie
+CONF_LD_LINKER_OPTS_STAGE2 += -fPIC -fPIE -pie
