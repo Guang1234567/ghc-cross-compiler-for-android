@@ -116,3 +116,4 @@ STRIP_CMD = :
 
 # For android cross compile
 SRC_HC_OPTS += -fPIC -fPIE -pie
+DYNAMIC_GHC_PROGRAMS = YES
