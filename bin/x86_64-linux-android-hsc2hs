@@ -1,0 +1,36 @@
+#!/bin/sh
+exedir="/Users/lihanguang/dev_kit/haskell/ghc-8.6.5-20190531-x86_64-linux-android/lib/x86_64-linux-android-ghc-8.6.5/bin"
+exeprog="hsc2hs"
+executablename="$exedir/$exeprog"
+datadir="/Users/lihanguang/dev_kit/haskell/ghc-8.6.5-20190531-x86_64-linux-android/share"
+bindir="/Users/lihanguang/dev_kit/haskell/ghc-8.6.5-20190531-x86_64-linux-android/bin"
+topdir="/Users/lihanguang/dev_kit/haskell/ghc-8.6.5-20190531-x86_64-linux-android/lib/x86_64-linux-android-ghc-8.6.5"
+#!/bin/sh
+
+tflag="--template=$topdir/template-hsc.h"
+Iflag="-I$topdir/include/"
+
+read_response() {
+    response_file=$1
+    if [ -f "$response_file" ]; then
+        while read -r arg; do
+            case "$arg" in
+                -t*)          tflag=;;
+                --template=*) tflag=;;
+                @*)           read_response "${arg#"@"}" ;;
+                --)           break;;
+            esac
+        done < "$response_file"
+    fi
+}
+
+for arg do
+    case "$arg" in
+        -t*)          tflag=;;
+        --template=*) tflag=;;
+        @*)           read_response "${arg#"@"}" ;;
+        --)           break;;
+    esac
+done
+
+exec "$executablename" ${tflag:+"$tflag"} $HSC2HS_EXTRA ${1+"$@"} "$Iflag"
