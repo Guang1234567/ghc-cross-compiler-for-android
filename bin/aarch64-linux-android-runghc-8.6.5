@@ -1,0 +1,11 @@
+#!/bin/sh
+exedir="/Users/lihanguang/dev_kit/haskell/ghc-8.6.5-20190531-aarch64-linux-android/lib/aarch64-linux-android-ghc-8.6.5/bin"
+exeprog="runghc"
+executablename="$exedir/$exeprog"
+datadir="/Users/lihanguang/dev_kit/haskell/ghc-8.6.5-20190531-aarch64-linux-android/share"
+bindir="/Users/lihanguang/dev_kit/haskell/ghc-8.6.5-20190531-aarch64-linux-android/bin"
+topdir="/Users/lihanguang/dev_kit/haskell/ghc-8.6.5-20190531-aarch64-linux-android/lib/aarch64-linux-android-ghc-8.6.5"
+ghcprog="ghc-8.6.5"
+#!/bin/sh
+
+exec "$executablename" -f "$bindir/$ghcprog" ${1+"$@"}
