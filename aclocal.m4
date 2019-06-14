@@ -692,7 +692,7 @@ AC_DEFUN([FPTOOLS_SET_C_LD_FLAGS],
         # instructions (ie not Thumb).
         $2="$$2 -marm"
         $3="$$3 -Wl,-z,noexecstack"
-        $4="$$4 -z noexecstack"
+        $4="$$4"
         ;;
 
     aarch64*freebsd*)
