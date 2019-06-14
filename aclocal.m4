@@ -701,7 +701,7 @@ AC_DEFUN([FPTOOLS_SET_C_LD_FLAGS],
         ;;
     aarch64*linux*)
         $3="$$3 -Wl,-z,noexecstack"
-        $4="$$4 -z noexecstack"
+        $4="$$4"
         ;;
 
     powerpc-ibm-aix*)
