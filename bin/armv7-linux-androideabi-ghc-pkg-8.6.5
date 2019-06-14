@@ -1,0 +1,12 @@
+#!/bin/sh
+exedir="/Users/lihanguang/dev_kit/haskell/ghc-8.6.5-20190531-armv7-linux-androideabi/lib/armv7-linux-androideabi-ghc-8.6.5/bin"
+exeprog="ghc-pkg"
+executablename="$exedir/$exeprog"
+datadir="/Users/lihanguang/dev_kit/haskell/ghc-8.6.5-20190531-armv7-linux-androideabi/share"
+bindir="/Users/lihanguang/dev_kit/haskell/ghc-8.6.5-20190531-armv7-linux-androideabi/bin"
+topdir="/Users/lihanguang/dev_kit/haskell/ghc-8.6.5-20190531-armv7-linux-androideabi/lib/armv7-linux-androideabi-ghc-8.6.5"
+#!/bin/sh
+
+PKGCONF="$topdir/package.conf.d"
+exec "$executablename" --global-package-db "$PKGCONF" ${1+"$@"}
+
