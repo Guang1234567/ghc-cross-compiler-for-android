@@ -1,9 +1,9 @@
 #!/bin/sh
-exedir="/Users/lihanguang/dev_kit/haskell/ghc-8.6.5-20190531-aarch64-linux-android/lib/aarch64-linux-android-ghc-8.6.5/bin"
+exedir="/Users/lihanguang/dev_kit/haskell_sdk/ghc-8.6.5-20190531-aarch64-linux-android/lib/aarch64-linux-android-ghc-8.6.5/bin"
 exeprog="ghc-stage1"
 executablename="$exedir/$exeprog"
-datadir="/Users/lihanguang/dev_kit/haskell/ghc-8.6.5-20190531-aarch64-linux-android/share"
-bindir="/Users/lihanguang/dev_kit/haskell/ghc-8.6.5-20190531-aarch64-linux-android/bin"
-topdir="/Users/lihanguang/dev_kit/haskell/ghc-8.6.5-20190531-aarch64-linux-android/lib/aarch64-linux-android-ghc-8.6.5"
+datadir="/Users/lihanguang/dev_kit/haskell_sdk/ghc-8.6.5-20190531-aarch64-linux-android/share"
+bindir="/Users/lihanguang/dev_kit/haskell_sdk/ghc-8.6.5-20190531-aarch64-linux-android/bin"
+topdir="/Users/lihanguang/dev_kit/haskell_sdk/ghc-8.6.5-20190531-aarch64-linux-android/lib/aarch64-linux-android-ghc-8.6.5"
 executablename="$exedir/ghc"
 exec "$executablename" -B"$topdir" ${1+"$@"}

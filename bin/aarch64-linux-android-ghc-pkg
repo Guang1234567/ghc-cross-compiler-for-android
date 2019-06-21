@@ -1,1 +1,12 @@
-aarch64-linux-android-ghc-pkg-8.6.5
+#!/bin/sh
+exedir="/Users/lihanguang/dev_kit/haskell_sdk/ghc-8.6.5-20190531-aarch64-linux-android/lib/aarch64-linux-android-ghc-8.6.5/bin"
+exeprog="ghc-pkg"
+executablename="$exedir/$exeprog"
+datadir="/Users/lihanguang/dev_kit/haskell_sdk/ghc-8.6.5-20190531-aarch64-linux-android/share"
+bindir="/Users/lihanguang/dev_kit/haskell_sdk/ghc-8.6.5-20190531-aarch64-linux-android/bin"
+topdir="/Users/lihanguang/dev_kit/haskell_sdk/ghc-8.6.5-20190531-aarch64-linux-android/lib/aarch64-linux-android-ghc-8.6.5"
+#!/bin/sh
+
+PKGCONF="$topdir/package.conf.d"
+exec "$executablename" --global-package-db "$PKGCONF" ${1+"$@"}
+
